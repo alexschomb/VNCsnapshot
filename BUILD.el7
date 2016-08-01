@@ -1,0 +1,30 @@
+# Compiling and installing latest zlib
+$ cd /usr/local/src/
+$ wget http://zlib.net/zlib-1.2.8.tar.gz
+$ tar xzvf zlib-1.2.8.tar.gz
+$ cd zlib-1.2.8/
+$ ./configure --prefix /usr/local
+$ make
+$ make install
+
+# Compiling and installing latest IJG jpeg lib
+$ cd /usr/local/src/
+$ wget http://www.ijg.org/files/jpegsrc.v9b.tar.gz
+$ tar xzvf jpegsrc.v9b.tar.gz
+$ cd jpeg-9b/
+$ ./configure --prefix /usr/local
+$ make
+$ make install
+
+# Adding shared libraries to LD_LIBRARY_PATH
+$ echo "/usr/local/lib" >> /etc/ld.so.conf.d/usr-local.conf
+$ ldconfig
+
+# Compiling and installing VNCsnapshot
+$ cd /usr/local/src/
+$ git clone https://github.com/andys/VNCsnapshot.git
+$ cd VNCsnapshot/
+# No need to edit Makefile paths, because they are identical to above
+$ make
+$ cp vncsnapshot /usr/local/bin/
+$ cp vncpasswd /usr/local/bin/
